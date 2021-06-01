@@ -6,7 +6,7 @@ import (
 )
 
 // 新树
-func BSTNew(rootVal, rootData string) *Node {
+func New(rootVal, rootData string) *Node {
 	// 如果不写全，要指定 Key
 	return &Node{Value: rootVal, Data: rootData}
 }
@@ -15,7 +15,8 @@ func BSTNew(rootVal, rootData string) *Node {
 func (bst *Node) Insert(value, data string) error {
 	// 如果树为nil，则抛出异常
 	if bst == nil {
-		return errors.New("Cannot insert a value into a nil tree")
+		bst = New(value, data)
+		return nil
 	}
 
 	switch {
